@@ -50,17 +50,19 @@ class DayController extends Controller {
 	 */
 	public function store(Request $req)
 	{	
-		if (!$req->hasFile('photo'))
+		if (!$req->hasFile('photos') || count($req->file('photos')) < 1)
 		{
 			return abort(400);
 		}
 
-		$newFilename = ImageUpload::saveImage($req->file('photo'));
+		$newFilenames = ImageUpload::saveImage($req->file('photos'));
 
-		$photo = App::make('photo');
-		$photo->name = $newFilename;
+		foreach ($newFilenames as $newFilename) {
+			$photo = App::make('photo');
+			$photo->name = $newFilename;
 
-		DayService::addDay($photo);
+			DayService::addDay($photo);
+		}
 
 		return redirect('/create');
 	}
