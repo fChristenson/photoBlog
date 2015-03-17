@@ -6,22 +6,11 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App;
 use App\Day;
-use Hash;
-use DB;
+use DayService;
+use ImageUpload;
+use Imagecache;
 
 class DayController extends Controller {
-
-	private function getLastDay () {
-		$day = DB::table('days')->orderBy('created_at', 'desc')->first();
-		if (!$day)
-		{
-			return null;
-		}
-		else
-		{
-			return $day = Day::find($day->id);
-		}
-	}
 
 	/**
 	 * Display a listing of the resource.
@@ -30,7 +19,7 @@ class DayController extends Controller {
 	 */
 	public function index()
 	{
-		$day = $this->getLastDay();
+		$day = DayService::getLastDay();
 
 		if (!$day)
 		{
@@ -63,29 +52,15 @@ class DayController extends Controller {
 	{	
 		if (!$req->hasFile('photo'))
 		{
-			return abort(404);
+			return abort(400);
 		}
 
-		$file = $req->file('photo');
-		$newFilename = base64_encode(Hash::make($file->getClientOriginalName())) . '.' . $file->getClientOriginalExtension();
-		$file->move('images', $newFilename);
+		$newFilename = ImageUpload::saveImage($req->file('photo'));
 
 		$photo = App::make('photo');
 		$photo->name = $newFilename;
 
-		$day = $this->getLastDay();
-
-		if ($day && date('Ymd') == date('Ymd', strtotime($day->created_at)))
-		{
-			$day->save();
-			$day->photos()->save($photo);
-		}
-		else
-		{
-			$day = App::make('day');
-			$day->save();
-			$day->photos()->save($photo);
-		}
+		DayService::addDay($photo);
 
 		return redirect('/create');
 	}

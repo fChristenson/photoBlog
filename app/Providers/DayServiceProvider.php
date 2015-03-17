@@ -7,8 +7,12 @@ class DayServiceProvider extends ServiceProvider {
 
 	public function register()
 	{
-		$this->app->singleton('day', function ($app) {
+		$this->app->bind('day', function ($app) {
 			return new Day;
+		});
+
+		$this->app->bind('DayService', function () {
+			return new App\Services\DayService;
 		});
 	}
 

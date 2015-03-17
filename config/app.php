@@ -146,6 +146,9 @@ return [
 		'App\Providers\RouteServiceProvider',
 		'App\Providers\PhotoServiceProvider',
 		'App\Providers\DayServiceProvider',
+		'App\Providers\ImageServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
+		'Devfactory\Imagecache\ImagecacheServiceProvider',
 
 	],
 
@@ -194,6 +197,10 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+		'ImageUpload' => 'App\Services\ImageService',
+		'DayService' => 'App\Services\DayService',
+		'Imagecache'      => 'Devfactory\Imagecache\Facades\ImagecacheFacade',
+		'Str' => 'Illuminate\Support\Str',
 
 	],
 

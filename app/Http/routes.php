@@ -13,14 +13,15 @@
 
 Route::get('/', 'DayController@index');
 
+Route::get('home', 'DayController@index');
+
 Route::get('day/{id}', 'DayController@show');
 
-Route::get('create', 'DayController@create');
+Route::get('create', ['middleware' => 'auth', 'uses' => 'DayController@create']);
 
-Route::post('create', 'DayController@store');
+Route::post('create', ['middleware' => 'auth', 'uses' => 'DayController@store']);
 
 Route::get('theme', 'DayController@theme');
-
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

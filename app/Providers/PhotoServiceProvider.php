@@ -7,7 +7,7 @@ class PhotoServiceProvider extends ServiceProvider {
 
 	public function register()
 	{
-		$this->app->singleton('photo', function ($app) {
+		$this->app->bind('photo', function ($app) {
 			return new Photo;
 		});
 	}

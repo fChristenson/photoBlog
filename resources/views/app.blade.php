@@ -38,6 +38,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/theme') }}">Photo theme</a></li>
 					<li><a href="{{ url('/create') }}">Add photos</a></li>
+					<li><a href="{{ url('auth/logout') }}">Logout</a></li>
 				</ul>
 			</div>
 		</div>
