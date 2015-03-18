@@ -200,7 +200,6 @@ return [
 		'ImageUpload' => 'App\Services\ImageService',
 		'DayService' => 'App\Services\DayService',
 		'Imagecache'      => 'Devfactory\Imagecache\Facades\ImagecacheFacade',
-		'Str' => 'Illuminate\Support\Str',
 
 	],
 
