@@ -1,5 +1,5 @@
 @extends('app')
-@section('content');
+@section('content')
 	<div class="row">
 		<div class="col-sm-4 col-sm-offset-4">
 			<h1>Day {{ $day or '1'}}</h1>
