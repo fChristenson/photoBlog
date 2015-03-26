@@ -15,7 +15,7 @@
 			@for ($i = 0; $i < count($images); $i++)
 				<div class="col-xs-12 col-sm-4">
 					<a href="/images/{{ $images[$i]->name }}" class="thumbnail">
-						<img src="{{ Imagecache::get($images[$i]->name, 'default')->src }}" alt="image">
+						<img src="/images/$images[$i]->name" alt="image">
 					</a>
 				</div>
 			@endfor
