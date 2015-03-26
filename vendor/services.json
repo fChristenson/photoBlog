@@ -30,8 +30,7 @@
         "App\\Providers\\PhotoServiceProvider",
         "App\\Providers\\DayServiceProvider",
         "App\\Providers\\ImageServiceProvider",
-        "Intervention\\Image\\ImageServiceProvider",
-        "Devfactory\\Imagecache\\ImagecacheServiceProvider"
+        "Bkwld\\Croppa\\ServiceProvider"
     ],
     "eager": [
         "Illuminate\\Auth\\AuthServiceProvider",
@@ -53,8 +52,7 @@
         "App\\Providers\\PhotoServiceProvider",
         "App\\Providers\\DayServiceProvider",
         "App\\Providers\\ImageServiceProvider",
-        "Intervention\\Image\\ImageServiceProvider",
-        "Devfactory\\Imagecache\\ImagecacheServiceProvider"
+        "Bkwld\\Croppa\\ServiceProvider"
     ],
     "deferred": {
         "command.app.name": "Illuminate\\Foundation\\Providers\\ArtisanServiceProvider",

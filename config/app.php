@@ -147,8 +147,7 @@ return [
 		'App\Providers\PhotoServiceProvider',
 		'App\Providers\DayServiceProvider',
 		'App\Providers\ImageServiceProvider',
-		'Intervention\Image\ImageServiceProvider',
-		'Devfactory\Imagecache\ImagecacheServiceProvider',
+		'Bkwld\Croppa\ServiceProvider',
 
 	],
 
@@ -199,7 +198,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 		'ImageUpload' => 'App\Services\ImageService',
 		'DayService' => 'App\Services\DayService',
-		'Imagecache'      => 'Devfactory\Imagecache\Facades\ImagecacheFacade',
+		'Croppa' => 'Bkwld\Croppa\Facade'
 
 	],
 

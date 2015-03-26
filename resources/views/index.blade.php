@@ -15,7 +15,7 @@
 			@for ($i = 0; $i < count($images); $i++)
 				<div class="col-xs-12 col-sm-4">
 					<a href="/images/{{ $images[$i]->name }}" class="thumbnail">
-						<img src="/images/{{ $images[$i]->name }}" alt="image">
+						<img src="<?=Croppa::url("/images/" . $images[$i]->name, 320, 320)?>" alt="image">
 					</a>
 				</div>
 			@endfor
